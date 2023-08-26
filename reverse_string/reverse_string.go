@@ -1,11 +1,9 @@
 package reverse_string
 
 func ReverseString(string_to_reverse string) string {
-	reversed_string := ""
-
-	for current_index := len(string_to_reverse) - 1; current_index >= 0; current_index-- {
-		reversed_string += string(string_to_reverse[current_index])
+	runes_to_reverse := []rune(string_to_reverse)
+	for index := 0; index < len(runes_to_reverse) / 2; index++ {
+		runes_to_reverse[index], runes_to_reverse[len(runes_to_reverse) - 1 - index] = runes_to_reverse[len(runes_to_reverse) - 1 - index], runes_to_reverse[index]
 	}
-
-	return reversed_string
+	return string(runes_to_reverse)
 }
